@@ -23,14 +23,12 @@
 
     {{ getUser }}
 
-    <br><br>
-
-
+    <br /><br />
   </div>
 </template>
 
 <script>
-import { mapState, mapGetters } from "vuex";
+import { mapState, mapGetters, mapActions, mapMutations } from "vuex";
 export default {
   name: "HelloWorld",
   props: {
@@ -42,9 +40,12 @@ export default {
     };
   },
   methods: {
-    updateName() {
-      this.$store.dispatch("updateName");
-    },
+    // updateName() {
+    //   this.$store.dispatch("updateName");
+    // },
+
+    ...mapActions(["addProduct"]),
+      ...mapMutations(["addProduct"])
   },
   computed: {
     // name(){
